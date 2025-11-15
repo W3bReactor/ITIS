@@ -57,6 +57,7 @@ public class Main {
 
         System.out.println(order);
       //  Какое-то изменение
+        System.out.println("принтим");
         order.changeProductsCount(product4, 0);
         order.changeProductsCount(product4, 2);
 
