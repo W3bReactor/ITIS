@@ -56,7 +56,7 @@ public class Main {
         order.changeProductsCount(product2, 5);
 
         System.out.println(order);
-
+      //  Какое-то изменение
         order.changeProductsCount(product4, 0);
         order.changeProductsCount(product4, 2);
 
