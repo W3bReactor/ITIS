@@ -1,12 +1,12 @@
 public class Product {
-    String article;
-    Seller seller;
-    String name;
-    String deliveryDate; // Срок доставки
-    String gettingDate;
-    double price;
-    int quantity;
-    String status; // Формируется | Оплачен | Доставлен | Получен
+    private String article;
+    private Seller seller;
+    private String name;
+    private String deliveryDate; // Срок доставки
+    private String gettingDate;
+    private double price;
+    private int quantity;
+    private String status; // Формируется | Оплачен | Доставлен | Получен
 
     Product(String article, String name, Seller seller, double price) {
         this.article = article;
