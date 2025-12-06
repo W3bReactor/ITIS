@@ -1,11 +1,30 @@
 package ru.itis;
 
 public class LinkedList503 {
+    private class Node {
+        private int value;
+        private Node next;
+
+
+        public Node(int value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "value=" + value +
+                    ", next=" + next +
+                    '}';
+        }
+    }
+
     private Node head;
     private int size;
 
     public void add(int value) {
         Node node = new Node(value);
+
         if(head == null) {
             head = node;
         } else {
@@ -110,6 +129,64 @@ public class LinkedList503 {
             System.out.println(current.value);
             current = current.next;
         }
+    }
+//  Сортировка пузырьком
+    public void sort() {
+        if(size() < 2) {
+            System.out.println("Размер списка меньше 2");
+            return;
+        }
+
+/*
+    f = O(g)
+    сущ N  f| <= N * |g|
+*/
+
+        for (int i = 0; i < size() - 1; i++) {
+            Node prev = head;
+            Node current = head;
+            Node next = head.next;
+            for (int j = 0; j < size - 1 - i; j++) {
+                if(compare(current, next) > 0) {
+                    swap(prev, current, next);
+                    if(current == head) {
+                        head = next;
+                    }
+                    prev = next;
+                    next = current.next;
+                } else {
+                    prev = current;
+                    current = next;
+                    next = next.next;
+                }
+            }
+        }
 
     }
+
+
+    private void swap(Node p, Node c, Node n) {
+            p.next = n;
+            c.next = n.next;
+            n.next = c;
+    }
+
+    private int compare(Node c, Node n) {
+        return c.value - n.value;
+    }
+
+    @Override
+    public String toString() {
+        Node current = head;
+        System.out.println("Список:");
+        String result = "[";
+        while(current != null) {
+            result = result + current.value + (current.next != null ?  ", " : "");
+            current = current.next;
+        }
+        result += "]";
+        return result;
+    }
+
+
 }
