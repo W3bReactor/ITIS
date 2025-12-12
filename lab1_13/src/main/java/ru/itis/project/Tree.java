@@ -112,13 +112,13 @@ public class Tree implements IntCollection {
             return road;
         }
         String[] result;
-        if(left != null) {
+        if(left != null && node.value > value) {
             result = getCurrentPath(left, road, value, "l", index+1);
             if(result[0] != null) {
                 return result;
             }
         }
-        if(right != null) {
+        if(right != null && node.value < value) {
             result = getCurrentPath(right, road, value, "r", index+1);
             if(result[0] != null) {
                 return result;

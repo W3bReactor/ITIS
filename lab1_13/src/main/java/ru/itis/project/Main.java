@@ -21,7 +21,7 @@ public class Main {
 //        tree.add(15);
 //        tree.add(18);
 //        tree.add(17);
-        System.out.println(Arrays.toString(tree.getPath(7)));
+        System.out.println(Arrays.toString(tree.getPath(50)));
         System.out.println(tree.max());
         System.out.println(tree.min());
         System.out.println(tree);
