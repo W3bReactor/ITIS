@@ -36,8 +36,6 @@ public class TestListPerson {
         System.out.println(list.remove(3));
         System.out.println(list);
 
-
-
         System.out.println("Проверка toArray");
         Object[] persons = list.toArray();
         for (Object person: persons) {

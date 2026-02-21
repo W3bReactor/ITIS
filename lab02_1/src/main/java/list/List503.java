@@ -1,5 +1,6 @@
 package list;
 
+
 public interface List503<T> {
     int size();
     boolean isEmpty();

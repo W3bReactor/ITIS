@@ -41,7 +41,7 @@ public class List503Impl<T> implements List503<T> {
 
     @Override
     public void add(T value, int position) {
-        if(currentSize < position) {
+        if(position < 0 || currentSize < position) {
             throw new IndexOutOfBoundsException("Кол-во элементов в массиве + 1 < выбранная позиция.");
         }
         updateArraySizeIfFull();
@@ -65,7 +65,7 @@ public class List503Impl<T> implements List503<T> {
 
     @Override
     public T remove(int index) {
-        if(currentSize - 1 < index) {
+        if(index < 0 || currentSize - 1 < index) {
             throw new IndexOutOfBoundsException("Элемента с таким индексом не найдено.");
         }
         Object value = arr[index];
@@ -86,7 +86,7 @@ public class List503Impl<T> implements List503<T> {
 
     @Override
     public T get(int index) {
-        if(currentSize - 1 < index) {
+        if(index < 0 || currentSize - 1 < index) {
             throw new IndexOutOfBoundsException("Элемента с таким индексом не найдено.");
         }
         return (T) arr[index];
