@@ -6,6 +6,7 @@ import ru.itis.project.set.Set503Gen;
 import ru.itis.project.set.Set503GenImpl;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Map503Impl<K, V> implements Map503<K, V> {
     Entry<K, V>[] entries;
@@ -48,6 +49,22 @@ public class Map503Impl<K, V> implements Map503<K, V> {
         @Override
         public String toString() {
             return "E[" + "key=" + this.key + ", value=" + this.value + "]";
+        }
+
+
+        @Override
+        public boolean equals(Object obj) {
+            if(this == obj) return true;
+            if(obj == null || !obj.getClass().equals(EntryImpl.class)) {
+                return false;
+            }
+            EntryImpl p = (EntryImpl) obj;
+            return this.key.equals(p.key) && this.value.equals(p.value);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(this.key, this.value);
         }
     }
 

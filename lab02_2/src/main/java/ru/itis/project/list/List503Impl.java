@@ -1,12 +1,13 @@
 package ru.itis.project.list;
 
 import java.lang.reflect.Array;
+import java.util.Iterator;
 
-public class List503Impl<T> implements List503<T> {
+public class List503Impl<T> implements List503<T>, Iterable<T> {
     private int capacity = 3;
     private int currentSize = 0;
     private Object[] arr;
-
+    private int currentIndex;
 
     public List503Impl() {
         this.arr = new Object[capacity];
@@ -114,6 +115,23 @@ public class List503Impl<T> implements List503<T> {
         }
         result.append("]");
         return result.toString();
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        currentIndex = 0;
+//         Анонимный класс
+        return new Iterator<T>() {
+            @Override
+            public boolean hasNext() {
+                return currentSize > currentIndex;
+            }
+
+            @Override
+            public T next() {
+                return (T) arr[currentIndex++];
+            }
+        };
     }
 
 }
